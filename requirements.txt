@@ -1,0 +1,6 @@
+antlr4-python3-runtime>=4.9.2
+antlr4-python3-runtime<5.0
+networkx>=2.5.1
+python-dateutil
+rdflib>=5.0.0
+rdflib<6.0
