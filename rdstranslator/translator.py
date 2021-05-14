@@ -3,7 +3,7 @@ from rdflib.term import Variable, URIRef, Literal
 from rdflib.paths import MulPath
 from rdflib import RDF
 from .classes import Triple, Operator
-from .query_generator import op_to_query
+from .query_generator import select_op_to_query
 
 VALUE_VERB = 'http://opcfoundation.org/UA/#value'
 STRING_VALUE_VERB = 'http://opcfoundation.org/UA/#stringValue'
@@ -11,13 +11,17 @@ REAL_VALUE_VERB = 'http://opcfoundation.org/UA/#realValue'
 INT_VALUE_VERB = 'http://opcfoundation.org/UA/#intValue'
 BOOL_VALUE_VERB = 'http://opcfoundation.org/UA/#boolValue'
 TIMESTAMP_VERB = 'http://opcfoundation.org/UA/#timestamp'
-HASCANONICALDESIGNATION_VERB = 'http://prediktor.com/RDS-Helpers/#hasCanonicalDesignation'
-IEC61850_HAS_LOGICAL_NODE_VERB = 'http://opcfoundation.org/UA/IEC61850-7-3#hasLogicalNode'
+BROWSENAME_VERB = 'http://opcfoundation.org/UA/#browseName'
+HASCANONICALDESIGNATION_VERB = 'http://prediktor.com/RDS-Hydropower-Fragment#hasCanonicalDesignation'
+RDS_HAS_LOGICAL_NODE_VERB = 'http://prediktor.com/RDS-Hydropower-Fragment#hasLogicalNode'
 IEC61850_HAS_DATA_OBJECT_VERB = 'http://opcfoundation.org/UA/IEC61850-7-3#hasDataObject'
 IEC61850_HAS_DATA_ATTRIBUTE_VERB = 'http://opcfoundation.org/UA/IEC61850-7-3#hasDataAttribute'
-RDS_FUNCTIONAL_ASPECT_VERB = 'http://prediktor.com/RDS-Helpers/#hasFunctionalAspect'
-RDS_CONSTRUCTION_ASPECT_VERB = 'http://prediktor.com/RDS-Helpers/#hasConstructionAspect'
-RDS_TYPE_ASPECT_VERB = 'http://prediktor.com/RDS-Helpers/#hasTypeAspect'
+RDS_FUNCTIONAL_ASPECT_VERB = 'http://prediktor.com/RDS-Hydropower-Fragment#functionalAspect'
+RDS_PRODUCT_ASPECT_VERB = 'http://prediktor.com/RDS-Hydropower-Fragment#productAspect'
+RDS_CONSTRUCTION_ASPECT_VERB = 'http://prediktor.com/RDS-Hydropower-Fragment#constructionAspect'
+RDS_TYPE_ASPECT_VERB = 'http://prediktor.com/RDS-Hydropower-Fragment#hasTypeAspect'
+RDS_TYPE_PREFIX = 'http://prediktor.com/RDS-Hydropower-Fragment#'
+IEC61850_TYPE_PREFIX = 'http://prediktor.com/IEC-61850-7-410-fragment#'
 
 attrib_datatype_dict = {
     'stVal':BOOL_VALUE_VERB,
@@ -42,7 +46,7 @@ def rdsquery_to_sparql(query:RDSQuery):
     for ln in logical_nodes:
         for do in query.gr.out_edges(ln):
             for da in query.gr.out_edges(do[1]):
-                da_path = ln.identifier + '.' + do[1].identifier + '.' + da[1].identifier
+                da_path = ln.identifier + '_' + do[1].identifier + '_' + da[1].identifier
                 da_path_dict[da[1]] = da_path
 
     var_dict = {}
@@ -73,10 +77,17 @@ def rdsquery_to_sparql(query:RDSQuery):
 
         if n not in data_attributes.union(data_objects):
             if n.identifier.isalpha():
-                #uri = resolve_type(n.identifier)
-                useop.triples.append(Triple(subject=var_dict[n], verb=RDF.type, object=URIRef(n.identifier)))
+                if n in logical_nodes:
+                    typeuri = IEC61850_TYPE_PREFIX + n.identifier
+                else:
+                    typeuri = RDS_TYPE_PREFIX + n.identifier
+                useop.triples.append(Triple(subject=var_dict[n], verb=RDF.type, object=URIRef(typeuri)))
             else:
-                useop.triples.append(Triple(subject=var_dict[n], verb=URIRef('browsename'), object=Literal(n.identifier)))
+                useop.triples.append(Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=Literal(n.identifier)))
+
+        else:
+            useop.triples.append(
+                Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=Literal(n.identifier)))
 
     i=0
     for n in distinct_rds_nodes:
@@ -86,7 +97,7 @@ def rdsquery_to_sparql(query:RDSQuery):
             name = 'designation_' + str(i)
 
         designation_var = Variable(name)
-        rdsbpgop.triples.append(Triple(subject=var_dict[n], verb=URIRef(HASCANONICALDESIGNATION_VERB), object=designation_var))
+        rdsbpgop.triples.append(Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=designation_var))
         rdsselop.project_vars.append(designation_var)
         rdsselop.project_vars.append(var_dict[n])
         matop.project_vars.append(designation_var)
@@ -111,7 +122,7 @@ def rdsquery_to_sparql(query:RDSQuery):
         elif e[2]['edge_type'] == '#':
             edge_type = RDS_TYPE_ASPECT_VERB
         elif e[2]['edge_type'] == '/':
-            edge_type = IEC61850_HAS_LOGICAL_NODE_VERB
+            edge_type = RDS_HAS_LOGICAL_NODE_VERB
         else:
             raise SyntaxError('Unknown edge type: ' + e[2]['edge_type'])
 
@@ -140,5 +151,5 @@ def rdsquery_to_sparql(query:RDSQuery):
         matbgpop.triples.append(Triple(subject=da_value_holder, verb=URIRef(datatype_verb), object=da_value_var))
         matop.project_vars.append(da_value_var)
 
-    q = op_to_query(matop)
+    q = select_op_to_query(matop, False)
     return q

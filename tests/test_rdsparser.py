@@ -9,3 +9,4 @@ from 2021-01-01 00:00:00+00:00
 to 2021-01-31 23:59:59+00:00
 """
     rds_query = parse_rdsquery(qstr=q)
+    print(rds_query)

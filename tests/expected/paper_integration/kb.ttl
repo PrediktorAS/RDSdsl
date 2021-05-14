@@ -1,0 +1,401 @@
+@prefix ns1: <http://opcfoundation.org/UA/#> .
+@prefix ns2: <http://opcfoundation.org/UA/IEC61850-7-3#> .
+@prefix ns3: <http://prediktor.com/RDS-Hydropower-Fragment#> .
+@prefix ns4: <http://prediktor.com/UA-helpers/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite_> a ns1:BaseObjectType,
+        ns3:SiteType ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
+    ns1:browseName "<MySite>" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "My site" ;
+    ns1:displayName "<MySite>" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=<MySite>" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
+    ns3:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q_Value> ns4:isExternalValue true .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal_Value> ns4:isExternalValue true ;
+    ns4:signalId 3 .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag_Value> ns4:isExternalValue true ;
+    ns4:signalId 1 .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q_Value> ns4:isExternalValue true .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q_Value> ns4:isExternalValue true .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal_Value> ns4:isExternalValue true ;
+    ns4:signalId 4 .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag_Value> ns4:isExternalValue true ;
+    ns4:signalId 2 .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q_Value> ns4:isExternalValue true .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName_Value> ns1:hasStringValue "=A1" ;
+    ns4:isExternalValue false .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName_Value> ns1:hasStringValue "=KA1" ;
+    ns4:isExternalValue false .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName_Value> ns1:hasStringValue "=A2" ;
+    ns4:isExternalValue false .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName_Value> ns1:hasStringValue "=KA1" ;
+    ns4:isExternalValue false .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName> a ns1:BaseVariableType,
+        ns1:PropertyType ;
+    ns1:browseName "FunctionalAspectName" ;
+    ns1:browseNameNamespace ns1: ;
+    ns1:description "Functional aspect name" ;
+    ns1:displayName "FunctionalAspectName" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=<MySite>=A1.FunctionalAspectName" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> a ns1:BaseVariableType,
+        ns1:PropertyType ;
+    ns1:browseName "FunctionalAspectName" ;
+    ns1:browseNameNamespace ns1: ;
+    ns1:description "Functional aspect name" ;
+    ns1:displayName "FunctionalAspectName" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=<MySite>=A1.KA1.FunctionalAspectName" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName> a ns1:BaseVariableType,
+        ns1:PropertyType ;
+    ns1:browseName "FunctionalAspectName" ;
+    ns1:browseNameNamespace ns1: ;
+    ns1:description "Functional aspect name" ;
+    ns1:displayName "FunctionalAspectName" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=<MySite>=A2.FunctionalAspectName" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> a ns1:BaseVariableType,
+        ns1:PropertyType ;
+    ns1:browseName "FunctionalAspectName" ;
+    ns1:browseNameNamespace ns1: ;
+    ns1:description "Functional aspect name" ;
+    ns1:displayName "FunctionalAspectName" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=<MySite>=A2.KA1.FunctionalAspectName" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17> a ns1:BaseObjectType,
+        ns2:IEC61850LNodeBaseObjectType,
+        <http://prediktor.com/IEC-61850-7-410-fragment#HVLV> ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> ;
+    ns1:browseName "HVLV1" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "Main valve upper reservoir" ;
+    ns1:displayName "HVLV1" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=HVLV17" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> ;
+    ns2:hasDataObject <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm> a ns1:BaseObjectType,
+        ns2:IEC61850DOBaseObjectType,
+        ns2:SPS ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> ;
+    ns1:browseName "Mvm" ;
+    ns1:browseNameNamespace <http://prediktor.com/IEC-61850-7-410-fragment#> ;
+    ns1:description "Valve is moving" ;
+    ns1:displayName "Mvm" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=HVLV17.Mvm" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> ;
+    ns2:hasDataAttribute <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "q" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "q" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV17.Mvm.q" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "stVal" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "stVal" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV17.Mvm.stVal" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct> a ns1:BaseObjectType,
+        ns2:IEC61850DOBaseObjectType,
+        ns2:MV ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> ;
+    ns1:browseName "PosPct" ;
+    ns1:browseNameNamespace <http://prediktor.com/IEC-61850-7-410-fragment#> ;
+    ns1:description "Valve position given as 0 – 100 percent" ;
+    ns1:displayName "PosPct" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=HVLV17.PosPct" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> ;
+    ns2:hasDataAttribute <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "mag" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "mag" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV17.PosPct.mag" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "q" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "q" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV17.PosPct.q" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18> a ns1:BaseObjectType,
+        ns2:IEC61850LNodeBaseObjectType,
+        <http://prediktor.com/IEC-61850-7-410-fragment#HVLV> ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> ;
+    ns1:browseName "HVLV1" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "Main valve lower reservoir" ;
+    ns1:displayName "HVLV1" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=HVLV18" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> ;
+    ns2:hasDataObject <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm> a ns1:BaseObjectType,
+        ns2:IEC61850DOBaseObjectType,
+        ns2:SPS ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> ;
+    ns1:browseName "Mvm" ;
+    ns1:browseNameNamespace <http://prediktor.com/IEC-61850-7-410-fragment#> ;
+    ns1:description "Valve is moving" ;
+    ns1:displayName "Mvm" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=HVLV18.Mvm" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> ;
+    ns2:hasDataAttribute <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "q" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "q" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV18.Mvm.q" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "stVal" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "stVal" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV18.Mvm.stVal" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct> a ns1:BaseObjectType,
+        ns2:IEC61850DOBaseObjectType,
+        ns2:MV ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> ;
+    ns1:browseName "PosPct" ;
+    ns1:browseNameNamespace <http://prediktor.com/IEC-61850-7-410-fragment#> ;
+    ns1:description "Valve position given as 0 – 100 percent" ;
+    ns1:displayName "PosPct" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=HVLV18.PosPct" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> ;
+    ns2:hasDataAttribute <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag>,
+        <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "mag" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "mag" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV18.PosPct.mag" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q> a ns1:BaseDataVariableType,
+        ns1:BaseVariableType ;
+    ns1:browseName "q" ;
+    ns1:browseNameNamespace ns2: ;
+    ns1:description "None" ;
+    ns1:displayName "q" ;
+    ns1:nodeClass "UAVariable" ;
+    ns1:nodeId "ns=1;s=HVLV18.PosPct.q" ;
+    ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q_Value> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A1> a ns1:BaseObjectType,
+        ns3:A,
+        ns3:FunctionalSystemType,
+        ns3:RDSHypSystemType ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
+    ns1:browseName "<MySite>=A1" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "Transforming system upper reservoir" ;
+    ns1:displayName "<MySite>=A1" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
+    ns1:hasProperty <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=<MySite>=A1" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
+    ns3:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> a ns1:BaseObjectType,
+        ns3:KA,
+        ns3:K_,
+        ns3:RDSHypSystemType,
+        ns3:TechnicalSystemType ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV17>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
+    ns1:browseName "<MySite>=A1.KA1" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "Flow controlling system upper reservoir" ;
+    ns1:displayName "<MySite>=A1.KA1" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV17>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV17> ;
+    ns1:hasProperty <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV17>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=<MySite>=A1.KA1" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV17>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
+    ns3:hasLogicalNode <http://prediktor.com/RDS_dsl_testcase#s_HVLV17> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> a ns1:BaseObjectType,
+        ns3:A,
+        ns3:FunctionalSystemType,
+        ns3:RDSHypSystemType ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
+    ns1:browseName "<MySite>=A2" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "Transforming system lower reservoir" ;
+    ns1:displayName "<MySite>=A2" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
+    ns1:hasProperty <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=<MySite>=A2" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
+    ns3:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> .
+
+<http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> a ns1:BaseObjectType,
+        ns3:KA,
+        ns3:K_,
+        ns3:RDSHypSystemType,
+        ns3:TechnicalSystemType ;
+    ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV18>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
+    ns1:browseName "<MySite>=A2.KA1" ;
+    ns1:browseNameNamespace <http://prediktor.com/RDS_dsl_testcase#> ;
+    ns1:description "Flow controlling system lower reservoir" ;
+    ns1:displayName "<MySite>=A2.KA1" ;
+    ns1:hasChild <http://prediktor.com/RDS_dsl_testcase#s_HVLV18>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
+    ns1:hasComponent <http://prediktor.com/RDS_dsl_testcase#s_HVLV18> ;
+    ns1:hasProperty <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
+    ns1:hierarchicalReferences <http://prediktor.com/RDS_dsl_testcase#s_HVLV18>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
+    ns1:nodeClass "UAObject" ;
+    ns1:nodeId "ns=1;s=<MySite>=A2.KA1" ;
+    ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV18>,
+        <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
+    ns3:hasLogicalNode <http://prediktor.com/RDS_dsl_testcase#s_HVLV18> .
+

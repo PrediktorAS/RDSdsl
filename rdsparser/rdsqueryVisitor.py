@@ -23,7 +23,7 @@ class rdsqueryVisitor(ParseTreeVisitor):
     def visitRdsQuery(self, ctx:rdsqueryParser.RdsQueryContext):
         cd = cdict(ctx)
 
-        rds_query = RDSQuery(root=QueryNode('ROOT'))
+        rds_query = RDSQuery(root=QueryNode('SiteType'))
         qec = 'QueryExpression'
         if qec in cd:
             for q in cd[qec]:

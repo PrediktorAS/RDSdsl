@@ -2,8 +2,7 @@ from rdstranslator import rdsquery_to_sparql
 from rdsparser import parse_rdsquery
 
 def test_paperquery():
-    q = """
-=A=KA/HVLV.[1]
+    q = """=A=KA/HVLV.[1]
 [1]PosPct.mag
 [1]Mvm.stVal = true
 from 2021-01-01 00:00:00+00:00

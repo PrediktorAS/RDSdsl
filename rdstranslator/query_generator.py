@@ -20,7 +20,7 @@ from .classes import Operator, Triple
 
 def op_to_query(op: Operator):
     if op.type == 'SelectQuery':
-        query = select_op_to_query(op)
+        query = select_op_to_query(op, True)
     elif op.type == 'Project':
         query = project_op_to_query(op)
     elif op.type == 'LeftJoin':
@@ -41,15 +41,21 @@ def project_op_to_query(op: Operator):
     return query
 
 
-def select_op_to_query(op: Operator):
+def select_op_to_query(op: Operator, subq:bool):
     if op.distinct:
         distinct = 'DISTINCT '
     else:
         distinct = ''
-    query = 'SELECT ' + distinct + ' '.join(map(lambda x: '?' + str(x), op.project_vars)) + ' WHERE {\n'
+    if subq:
+        query = '{'
+    else:
+        query = ''
+    query += 'SELECT ' + distinct + ' '.join(map(lambda x: '?' + str(x), op.project_vars)) + ' WHERE {\n'
     for c in op.children:
         query += op_to_query(c)
     query += '}'
+    if subq:
+        query += '}'
     return query
 
 

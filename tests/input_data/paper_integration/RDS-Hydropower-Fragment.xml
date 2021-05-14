@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <UANodeSet xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+    <NamespaceUris>
+    <Uri>http://prediktor.com/RDS-Hydropower-Fragment</Uri>
+    </NamespaceUris>
+    <Models>
+        <Model ModelUri="http://prediktor.com/RDS-Hydropower-Fragment" PublicationDate="2020-04-06T08:03:52Z" Version="1.0.0">
+        </Model>
+    </Models>
+    <Aliases>
+    </Aliases>
+    <UAVariable NodeId="ns=1;s=RDSHYP.FunctionalAspectName" BrowseName="1:FunctionalAspectName" DataType="ns=0;i=12" ><DisplayName>FunctionalAspectName</DisplayName><Description>Functional aspect name</Description><References><Reference ReferenceType="ns=0;i=40">ns=0;i=68</Reference><Reference ReferenceType="ns=0;i=37">ns=0;i=80</Reference><Reference ReferenceType="ns=0;i=46"  IsForward="false">ns=1;s=RDSHYP</Reference></References></UAVariable>
+<UAVariable NodeId="ns=1;s=RDSHYP.ProductAspectName" BrowseName="1:ProductAspectName" DataType="ns=0;i=12" ><DisplayName>ProductAspectName</DisplayName><Description>Product aspect name</Description><References><Reference ReferenceType="ns=0;i=40">ns=0;i=68</Reference><Reference ReferenceType="ns=0;i=37">ns=0;i=80</Reference><Reference ReferenceType="ns=0;i=46"  IsForward="false">ns=1;s=RDSHYP</Reference></References></UAVariable>
+<UAObjectType NodeId="ns=1;s=A" BrowseName="1:A" ><DisplayName>A</DisplayName><Description>Functional system transforming energy or energy carrier</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=1;s=HYP1</Reference></References></UAObjectType>
+<UAObjectType NodeId="ns=1;s=K_" BrowseName="1:K_" ><DisplayName>K_</DisplayName><Description>technical system which provides treatment</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=1;s=HYP2</Reference></References></UAObjectType>
+<UAObjectType NodeId="ns=1;s=KA" BrowseName="1:KA" ><DisplayName>KA</DisplayName><Description>treatment system controling a motion or electrical current</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=1;s=K_</Reference></References></UAObjectType>
+<UAObjectType NodeId="ns=1;s=RDSHYP" BrowseName="1:RDSHypSystemType" ><DisplayName>RDSHypSystemType</DisplayName><Description>RDS Hydropower base system type</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=0;i=58</Reference><Reference ReferenceType="ns=0;i=40"  IsForward="false">ns=1;s=RDSHYP.&lt;FunctionalAspectChild&gt;</Reference><Reference ReferenceType="ns=0;i=40"  IsForward="false">ns=1;s=RDSHYP.&lt;ProductAspectChild&gt;</Reference></References></UAObjectType>
+<UAObjectType NodeId="ns=1;s=HYP1" BrowseName="1:HYP1" ><DisplayName>FunctionalSystemType</DisplayName><Description>Functional systems</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=1;s=RDSHYP</Reference></References></UAObjectType>
+<UAObjectType NodeId="ns=1;s=HYP2" BrowseName="1:HYP2" ><DisplayName>TechnicalSystemType</DisplayName><Description>Technical systems</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=1;s=RDSHYP</Reference></References></UAObjectType>
+<UAObject NodeId="ns=1;s=RDSHYP.&lt;FunctionalAspectChild&gt;" BrowseName="1:&lt;FunctionalAspectChild&gt;" ><DisplayName>&lt;FunctionalAspectChild&gt;</DisplayName><Description>Placeholder for navigation with functional aspect</Description><References><Reference ReferenceType="ns=0;i=37">ns=0;i=11508</Reference><Reference ReferenceType="ns=1;s=FunctionalAspect"  IsForward="false">ns=1;s=RDSHYP</Reference></References></UAObject>
+<UAObject NodeId="ns=1;s=RDSHYP.&lt;ProductAspectChild&gt;" BrowseName="1:&lt;ProductAspectChild&gt;" ><DisplayName>&lt;ProductAspectChild&gt;</DisplayName><Description>Placeholder for navigation with product aspect</Description><References><Reference ReferenceType="ns=0;i=37">ns=0;i=11508</Reference><Reference ReferenceType="ns=1;s=ProductAspect"  IsForward="false">ns=1;s=RDSHYP</Reference></References></UAObject>
+<UAReferenceType NodeId="ns=1;s=FunctionalAspect" BrowseName="1:FunctionalAspect" ><DisplayName>FunctionalAspect</DisplayName><Description>Functional aspect reference</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=0;i=47</Reference></References></UAReferenceType>
+<UAReferenceType NodeId="ns=1;s=ProductAspect" BrowseName="1:ProductAspect" ><DisplayName>ProductAspect</DisplayName><Description>Product aspect reference</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=0;i=47</Reference></References></UAReferenceType>
+<UAObjectType NodeId="ns=1;s=SiteType" BrowseName="1:SiteType" ><DisplayName>SiteType</DisplayName><Description>SiteType of RDS Hydropower</Description><References><Reference ReferenceType="ns=0;i=45"  IsForward="false">ns=0;i=58</Reference></References></UAObjectType>
+    <UAReferenceType NodeId="ns=1;s=HasLogicalNode" BrowseName="1:HasLogicalNode">
+        <DisplayName>HasLogicalNode</DisplayName>
+        <Description>Has IEC 61850 Logical Node</Description>
+        <References>
+            <Reference ReferenceType="ns=0;i=45" IsForward="false">ns=0;i=47</Reference>
+        </References>
+    </UAReferenceType>
+</UANodeSet>

@@ -1,0 +1,5 @@
+NodeId,signal_id
+ns=1;s=HVLV17.PosPct.mag,1
+ns=1;s=HVLV18.PosPct.mag,2
+ns=1;s=HVLV17.Mvm.stVal,3
+ns=1;s=HVLV18.Mvm.stVal,4

@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UANodeSet LastModified="2021-04-16T08:31:50.030499+00:00"
+           xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
+    <NamespaceUris>
+        <Uri>http://prediktor.com/IEC-61850-7-410-fragment</Uri>
+        <Uri>http://opcfoundation.org/UA/IEC61850-7-3</Uri>
+        <Uri>http://opcfoundation.org/UA/IEC61850-7-4</Uri>
+    </NamespaceUris>
+    <Models>
+        <Model ModelUri="http://prediktor.com/IEC-61850-7-410-fragment"
+               PublicationDate="2021-04-16T08:31:50.030499+00:00" Version="1.0.0"></Model>
+    </Models>
+    <Aliases></Aliases>
+    <UAObjectType NodeId="ns=1;s=HVLV" BrowseName="1:HVLV">
+        <DisplayName>HVLV</DisplayName>
+        <Description>Logical node HVLV shall be used to represent e.g. a valve in the penstock. For calculation of water
+            flow, a FCSD logical node that holds the relation between water level, opening and flow, should be included
+            in the same logical device. This LN can also be used to represent a main control valve. For a simpler type
+            of valve, the logical node KVLV is recommended (see IEC 61850-7-4).
+        </Description>
+        <References>
+            <Reference ReferenceType="i=45" IsForward="false">ns=2;i=4</Reference>
+        </References>
+    </UAObjectType>
+    <UAObject NodeId="ns=1;s=HVLV.SldStrPs" BrowseName="1:SldStrPs">
+        <DisplayName>SldStrPs</DisplayName>
+        <Description>Solidity compensation start in positive direction</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.SldStrNg" BrowseName="1:SldStrNg">
+        <DisplayName>SldStrNg</DisplayName>
+        <Description>Solidity compensation start in negative direction</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.SldOfsPs" BrowseName="1:SldOfsPs">
+        <DisplayName>SldOfsPs</DisplayName>
+        <Description>Solidity offset in positive direction</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.SldOfsNg" BrowseName="1:SldOfsNg">
+        <DisplayName>SldOfsNg</DisplayName>
+        <Description>Solidity offset in negative direction</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.CbrRng" BrowseName="1:CbrRng">
+        <DisplayName>CbrRng</DisplayName>
+        <Description>Calibration range</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.DvWrnSpt" BrowseName="1:DvWrnSpt">
+        <DisplayName>DvWrnSpt</DisplayName>
+        <Description>Position deviation warning (margin)</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.DvAlmSpt" BrowseName="1:DvAlmSpt">
+        <DisplayName>DvAlmSpt</DisplayName>
+        <Description>Position deviation alarm (margin)</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=876</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.OpCntRs" BrowseName="1:OpCntRs">
+        <DisplayName>OpCntRs</DisplayName>
+        <Description>Resetable operation counter</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=578</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Incr" BrowseName="1:Incr">
+        <DisplayName>Incr</DisplayName>
+        <Description>Increment of position change for open / close commands</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=823</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.PosPct" BrowseName="1:PosPct">
+        <DisplayName>PosPct</DisplayName>
+        <Description>Valve position given as 0 – 100 percent</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=315</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.PosDeg" BrowseName="1:Flw">
+        <DisplayName>Flw</DisplayName>
+        <Description>Valve position given as 0 degrees – 90 degrees</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=315</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Flw" BrowseName="1:Flw">
+        <DisplayName>Flw</DisplayName>
+        <Description>Calculated liquid flow through the valve [m3/s]</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=315</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.LocSta" BrowseName="1:LocSta">
+        <DisplayName>LocSta</DisplayName>
+        <Description>Remote control blocked</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=504</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Opn" BrowseName="1:Opn">
+        <DisplayName>Opn</DisplayName>
+        <Description>Valve to full open position</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=504</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Cls" BrowseName="1:Cls">
+        <DisplayName>Cls</DisplayName>
+        <Description>Valve to full closed position</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=504</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.BlkOpn" BrowseName="1:BlkOpn">
+        <DisplayName>BlkOpn</DisplayName>
+        <Description>Block opening of the valve</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=504</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.BlkCls" BrowseName="1:BlkCls">
+        <DisplayName>BlkCls</DisplayName>
+        <Description>Block closing of the valve</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=504</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.LocKey" BrowseName="1:LocKey">
+        <DisplayName>LocKey</DisplayName>
+        <Description>Local or remote key</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=177</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Loc" BrowseName="1:Loc">
+        <DisplayName>Loc</DisplayName>
+        <Description>Local control behaviour</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=177</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Mvm" BrowseName="1:Mvm">
+        <DisplayName>Mvm</DisplayName>
+        <Description>Valve is moving</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=177</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.Stuck" BrowseName="1:Stuck">
+        <DisplayName>Stuck</DisplayName>
+        <Description>Device is blocked through external influence</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=177</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.DvWrn" BrowseName="1:DvWrn">
+        <DisplayName>DvWrn</DisplayName>
+        <Description>Position deviation warning</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=177</Reference>
+        </References>
+    </UAObject>
+    <UAObject NodeId="ns=1;s=HVLV.DvAlm" BrowseName="1:DvAlm">
+        <DisplayName>DvAlm</DisplayName>
+        <Description>Position deviation alarm</Description>
+        <References>
+            <Reference ReferenceType="i=37">i=80</Reference>
+            <Reference ReferenceType="ns=2;i=1" IsForward="false">ns=1;s=HVLV</Reference>
+            <Reference ReferenceType="i=40">ns=2;i=177</Reference>
+        </References>
+    </UAObject>
+    <UAVariable NodeId="ns=1;s=HVLV.LocKey.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.LocKey</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Loc.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Loc</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Mvm.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Mvm</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Stuck.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Stuck</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.DvWrn.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.DvWrn</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.DvAlm.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.DvAlm</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Flw.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Flw</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosPct.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.PosPct</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosDeg.q" BrowseName="2:q">
+        <DisplayName>q</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.PosDeg</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.LocSta.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.LocSta</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Opn.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Opn</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Cls.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Cls</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkOpn.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.BlkOpn</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkCls.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.BlkCls</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.OpCntRs.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.OpCntRs</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosSpt.ctlModel" BrowseName="2:ctlModel">
+        <DisplayName>ctlModel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.PosSpt</Reference>
+        </References>
+    </UAVariable>
+    <UAMethod NodeId="ns=1;s=HVLV.LocSta.Operate" BrowseName="2:Operate">
+        <DisplayName>Operate</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.LocSta</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.Opn.Operate" BrowseName="2:Operate">
+        <DisplayName>Operate</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.Opn</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.Cls.Operate" BrowseName="2:Operate">
+        <DisplayName>Operate</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.Cls</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.BlkOpn.Operate" BrowseName="2:Operate">
+        <DisplayName>Operate</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.BlkOpn</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.BlkCls.Operate" BrowseName="2:Operate">
+        <DisplayName>Operate</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.BlkCls</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.PosSpt.Operate" BrowseName="2:Operate">
+        <DisplayName>Operate</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.PosSpt</Reference>
+        </References>
+    </UAMethod>
+    <UAVariable NodeId="ns=1;s=HVLV.LocSta.Operate.InputArguments" BrowseName="0:InputArguments">
+        <DisplayName>InputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.LocSta.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Opn.Operate.InputArguments" BrowseName="0:InputArguments">
+        <DisplayName>InputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.Opn.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Cls.Operate.InputArguments" BrowseName="0:InputArguments">
+        <DisplayName>InputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.Cls.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkOpn.Operate.InputArguments" BrowseName="0:InputArguments">
+        <DisplayName>InputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.BlkOpn.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkCls.Operate.InputArguments" BrowseName="0:InputArguments">
+        <DisplayName>InputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.BlkCls.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.OpCntRs.Operate.InputArguments" BrowseName="0:InputArguments">
+        <DisplayName>InputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.OpCntRs.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.LocSta.Operate.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.LocSta.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Opn.Operate.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.Opn.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Cls.Operate.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.Cls.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkOpn.Operate.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.BlkOpn.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkCls.Operate.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.BlkCls.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosSpt.Operate.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.PosSpt.Operate</Reference>
+        </References>
+    </UAVariable>
+    <UAMethod NodeId="ns=1;s=HVLV.LocSta.Cancel" BrowseName="2:Cancel">
+        <DisplayName>Cancel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.LocSta</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.Opn.Cancel" BrowseName="2:Cancel">
+        <DisplayName>Cancel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.Opn</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.Cls.Cancel" BrowseName="2:Cancel">
+        <DisplayName>Cancel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.Cls</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.BlkOpn.Cancel" BrowseName="2:Cancel">
+        <DisplayName>Cancel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.BlkOpn</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.BlkCls.Cancel" BrowseName="2:Cancel">
+        <DisplayName>Cancel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.BlkCls</Reference>
+        </References>
+    </UAMethod>
+    <UAMethod NodeId="ns=1;s=HVLV.PosSpt.Cancel" BrowseName="2:Cancel">
+        <DisplayName>Cancel</DisplayName>
+        <References>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=47" IsForward="false">ns=1;s=HVLV.PosSpt</Reference>
+        </References>
+    </UAMethod>
+    <UAVariable NodeId="ns=1;s=HVLV.LocSta.Cancel.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.LocSta.Cancel</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Opn.Cancel.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.Opn.Cancel</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Cls.Cancel.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.Cls.Cancel</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkOpn.Cancel.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.BlkOpn.Cancel</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.BlkCls.Cancel.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.BlkCls.Cancel</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosSpt.Cancel.OutputArguments" BrowseName="0:OutputArguments">
+        <DisplayName>OutputArguments</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=68</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="i=46" IsForward="false">ns=1;s=HVLV.PosSpt.Cancel</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.SldStrPs.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.SldStrPs</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.SldStrNg.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.SldStrNg</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.SldOfsPs.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.SldOfsPs</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.SldOfsNg.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.SldOfsNg</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.CbrRng.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.CbrRng</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.DvWrnSpt.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.DvWrnSpt</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.DvAlmSpt.setMag" BrowseName="2:setMag">
+        <DisplayName>setMag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.DvAlmSpt</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.LocKey.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.LocKey</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Loc.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Loc</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Mvm.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Mvm</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Stuck.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Stuck</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.DvWrn.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.DvWrn</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.DvAlm.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.DvAlm</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.OpCntRs.stVal" BrowseName="2:stVal">
+        <DisplayName>stVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.OpCntRs</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Incr.setVal" BrowseName="2:setVal">
+        <DisplayName>setVal</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Incr</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.Flw.mag" BrowseName="2:mag">
+        <DisplayName>mag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.Flw</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosPct.mag" BrowseName="2:mag">
+        <DisplayName>mag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.PosPct</Reference>
+        </References>
+    </UAVariable>
+    <UAVariable NodeId="ns=1;s=HVLV.PosDeg.mag" BrowseName="2:mag">
+        <DisplayName>mag</DisplayName>
+        <References>
+            <Reference ReferenceType="i=40">i=63</Reference>
+            <Reference ReferenceType="i=37">i=78</Reference>
+            <Reference ReferenceType="ns=2;i=2" IsForward="false">ns=1;s=HVLV.PosDeg</Reference>
+        </References>
+    </UAVariable>
+</UANodeSet>
