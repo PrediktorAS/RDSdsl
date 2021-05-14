@@ -2,4 +2,4 @@ pytest>=6.2.2
 pytest<7.0.0
 psycopg2-binary>=2.8.6
 psycopg2-binary<3.0
-opcua-tools @ https://github.com/PrediktorAS/quarry/tarball/main#egg=quarry-0.0.3
+quarry @ https://github.com/PrediktorAS/quarry/tarball/main#egg=quarry-0.0.3
