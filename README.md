@@ -2,12 +2,42 @@
 A domain specific language for querying time series data for analytics from RDS (IEC 81346) composed with IEC-61850.
 
 Included here is:
-- A prototype parser
-- A prototype translator to SPARQL
+- A prototype parser in Python
+- A prototype translator to SPARQL using Python
 - A [test case](https://github.com/PrediktorAS/RDSdsl/blob/main/tests/test_paper_integration.py) demonstrating how we can combine this package with [Quarry](https://github.com/PrediktorAS/quarry) to query time series data which are contextualized by RDS and IEC 61850.
 
 This repository is associated with a paper, a draft version of which can be viewed [here](paperlink).
 
+## Usage
+### Installing
+Use the following command to install:
+```
+pip install git+https://github.com/PrediktorAS/RDSdsl.git
+```
+### Running tests
+Assuming Python 3 is installed, and you are in the folder where the repo has been cloned, run:
+```
+pip install .
+pip install -r tests/requirements.txt
+pytest
+```
+
+### Example usage
+There are two functions of interest, the ```parse_rdsquery```-functions parses a query string and gives us a graph-based representation of the query.
+The ```rdsquery_to_sparql```-function translates a parsed query to a SPARQL-string.
+```python
+from rdstranslator import rdsquery_to_sparql
+from rdsparser import parse_rdsquery 
+
+q = """=A=KA/HVLV.[1]
+[1]PosPct.mag
+[1]Mvm.stVal = true
+from 2021-01-01 00:00:00+00:00
+to 2021-01-31 23:59:59+00:00
+"""
+rds_query = parse_rdsquery(qstr=q)
+sparql = rdsquery_to_sparql(query=rds_query)
+```
 ## Overview
 ### Models
 We wish to query the time series data sets associated with industrial assets that are contextualized using the IEC 81346 (RDS) and IEC-61850 standards, and assume that you are somewhat familiar with these standards if you have found your way here.
