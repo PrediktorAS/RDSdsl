@@ -81,3 +81,11 @@ Using a setup such as in [Quarry](https://github.com/PrediktorAS/quarry), we can
 |<MySite>=A2.KA1|2021-01-04 00:00:00|True|23.0|
 |<MySite>=A2.KA1|2021-01-05 00:00:00|True|24.0|
 |<MySite>=A2.KA1|2021-01-31 10:00:00|True|25.0|
+
+## License
+The code in this repository is copyrighted to [Prediktor AS](http://prediktor.com), and is licensed under the Apache 2.0. \
+Exceptions apply to some of the test data (see document headers for license information). 
+
+Author:
+[Magnus Bakken](mba@prediktor.com)
+
