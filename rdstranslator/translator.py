@@ -1,8 +1,8 @@
-from rdsparser import RDSQuery
+from rdsparser import RDSQuery, QueryNode
 from rdflib.term import Variable, URIRef, Literal
 from rdflib.paths import MulPath
 from rdflib import RDF
-from .classes import Triple, Operator
+from .classes import Triple, Operator, Expression
 from .query_generator import select_op_to_query
 
 VALUE_VERB = 'http://opcfoundation.org/UA/#value'
@@ -58,22 +58,33 @@ def rdsquery_to_sparql(query:RDSQuery):
             name = name + '_1'
         var_dict[n] = Variable(name)
 
-    #Begin creating query
+    #Begin creating query, we use the algebraic structure of RDFLib
+    matselop = Operator(type='SelectQuery', name='MatrixSelectQuery')
+    matprojop = Operator(type='Project', name='MatrixProject')
+    matfilterop = Operator(type='Filter', name='MatrixFilter')
+    matjoinop = Operator(type='Join', name='MatrixJoin')
+    matbgpop = Operator(type='BGP', name='MatrixBGP')
 
-    matop = Operator(type='SelectQuery', name='MatrixQuery')
-    matbgpop = Operator(type='BGP', name='SignalsQuery')
-    rdsselop = Operator(type='SelectQuery', name='RDSSubSelect', distinct=True)
-    rdsbpgop = Operator(type='BGP', name='RDSBGP', distinct=True)
+    matselop.children.append(matprojop)
+    matprojop.children.append(matfilterop)
+    matfilterop.children.append(matjoinop)
+    matjoinop.children.append(matbgpop)
 
-    matop.children.append(matbgpop)
-    matop.children.append(rdsselop)
-    rdsselop.children.append(rdsbpgop)
+    subtomultisetop = Operator(type='ToMultiSet', name='SubToMultiset')
+    subdistinctop = Operator(type='Distinct', name='SubDistinct')
+    subprojop = Operator(type='Project', name='SubProject')
+    subbgpop = Operator(type='BGP', name='SubBGP')
+
+    matjoinop.children.append(subtomultisetop)
+    subtomultisetop.children.append(subdistinctop)
+    subdistinctop.children.append(subprojop)
+    subprojop.children.append(subbgpop)
 
     for n in query.gr.nodes:
         if n in logical_nodes.union(data_objects).union(data_attributes):
             useop = matbgpop
         else:
-            useop = rdsbpgop
+            useop = subbgpop
 
         if n not in data_attributes.union(data_objects):
             if n.identifier.isalpha():
@@ -84,7 +95,6 @@ def rdsquery_to_sparql(query:RDSQuery):
                 useop.triples.append(Triple(subject=var_dict[n], verb=RDF.type, object=URIRef(typeuri)))
             else:
                 useop.triples.append(Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=Literal(n.identifier)))
-
         else:
             useop.triples.append(
                 Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=Literal(n.identifier)))
@@ -97,16 +107,23 @@ def rdsquery_to_sparql(query:RDSQuery):
             name = 'designation_' + str(i)
 
         designation_var = Variable(name)
-        rdsbpgop.triples.append(Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=designation_var))
-        rdsselop.project_vars.append(designation_var)
-        rdsselop.project_vars.append(var_dict[n])
-        matop.project_vars.append(designation_var)
+        #Find canonical designation of RDS-node before slash, here we have encoded it on the browsename for simplicity.
+        subbgpop.triples.append(Triple(subject=var_dict[n], verb=URIRef(BROWSENAME_VERB), object=designation_var))
+
+        #Project canonical designation of RDS-node before slash from subquery
+        subprojop.project_vars.append(designation_var)
+
+        #Project URI of RDS-node before slash from subquery
+        subprojop.project_vars.append(var_dict[n])
+
+        #Project canonical designation of RDS-node before slash from matrix query
+        matprojop.project_vars.append(designation_var)
 
     for e in query.gr.edges(data=True):
         if e[1] in logical_nodes.union(data_objects).union(data_attributes):
             useop = matbgpop
         else:
-            useop = rdsbpgop
+            useop = subbgpop
 
         if e[2]['edge_type'] == '.':
             if e[1] in data_objects:
@@ -131,6 +148,7 @@ def rdsquery_to_sparql(query:RDSQuery):
         else:
             verb = URIRef(edge_type)
 
+        #Add appropriate structural constraints encoding aspects, slash and navigation to data attributes with dot.
         useop.triples.append(Triple(subject=var_dict[e[0]], verb=verb, object=var_dict[e[1]]))
 
     da_value_var_dict = {}
@@ -139,17 +157,35 @@ def rdsquery_to_sparql(query:RDSQuery):
         da_value_var_dict[da] = Variable(da_path_dict[da])
 
     timestamp_var = Variable('timestamp')
-    matop.project_vars.append(timestamp_var)
+    #Project the timestamp from the matrix query
+    matprojop.project_vars.append(timestamp_var)
 
     for da in data_attributes:
         da_var = var_dict[da]
         da_value_holder = Variable(str(da_var) + '_Value')
+        #Extract the value, timestamp of all data attributes
         matbgpop.triples.append(Triple(subject=da_var, verb=URIRef(VALUE_VERB), object=da_value_holder))
         matbgpop.triples.append(Triple(subject=da_value_holder, verb=URIRef(TIMESTAMP_VERB), object=timestamp_var))
         da_value_var = da_value_var_dict[da]
         datatype_verb = attrib_datatype_dict[da.identifier]
         matbgpop.triples.append(Triple(subject=da_value_holder, verb=URIRef(datatype_verb), object=da_value_var))
-        matop.project_vars.append(da_value_var)
+        #Project data attribute values from matrix query
+        matprojop.project_vars.append(da_value_var)
 
-    q = select_op_to_query(matop, False)
+    if query.from_dt is not None:
+        from_expr = Expression(lhs=timestamp_var, op='>=', rhs=Literal(query.from_dt))
+        matfilterop.expressions.append(from_expr)
+    if query.to_dt is not None:
+        to_expr = Expression(lhs=timestamp_var, op='<=', rhs=Literal(query.to_dt))
+        matfilterop.expressions.append(to_expr)
+
+    for f in query.query_filters:
+        if type(f.rhs) == QueryNode:
+            rhs = da_value_var_dict[f.rhs]
+        else:
+            rhs = Literal(f.rhs)
+        f_expr = Expression(lhs=da_value_var_dict[f.lhs], op=f.op, rhs=rhs)
+        matfilterop.expressions.append(f_expr)
+
+    q = select_op_to_query(matselop)
     return q

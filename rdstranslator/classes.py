@@ -27,10 +27,9 @@ class Triple:
 
 @dataclass
 class Expression:
-    type: str
-    expr: Union[Variable, Literal]
+    lhs: Variable
     op: str
-    other: Union[Variable, Literal]
+    rhs: Union[Variable, Literal]
 
 @dataclass
 class Operator:

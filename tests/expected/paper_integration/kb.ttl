@@ -1,11 +1,11 @@
 @prefix ns1: <http://opcfoundation.org/UA/#> .
 @prefix ns2: <http://opcfoundation.org/UA/IEC61850-7-3#> .
-@prefix ns3: <http://prediktor.com/RDS-Hydropower-Fragment#> .
-@prefix ns4: <http://prediktor.com/UA-helpers/#> .
+@prefix ns3: <http://prediktor.com/UA-helpers/#> .
+@prefix ns4: <http://prediktor.com/RDS-Hydropower-Fragment#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite_> a ns1:BaseObjectType,
-        ns3:SiteType ;
+        ns4:SiteType ;
     ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
     ns1:browseName "<MySite>" ;
@@ -22,40 +22,40 @@
     ns1:nodeId "ns=1;s=<MySite>" ;
     ns1:references <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> ;
-    ns3:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
+    ns4:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q_Value> ns4:isExternalValue true .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.q_Value> ns3:isExternalValue true .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal_Value> ns4:isExternalValue true ;
-    ns4:signalId 3 .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.Mvm.stVal_Value> ns3:isExternalValue true ;
+    ns3:signalId 3 .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag_Value> ns4:isExternalValue true ;
-    ns4:signalId 1 .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.mag_Value> ns3:isExternalValue true ;
+    ns3:signalId 1 .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q_Value> ns4:isExternalValue true .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV17.PosPct.q_Value> ns3:isExternalValue true .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q_Value> ns4:isExternalValue true .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.q_Value> ns3:isExternalValue true .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal_Value> ns4:isExternalValue true ;
-    ns4:signalId 4 .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.Mvm.stVal_Value> ns3:isExternalValue true ;
+    ns3:signalId 4 .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag_Value> ns4:isExternalValue true ;
-    ns4:signalId 2 .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.mag_Value> ns3:isExternalValue true ;
+    ns3:signalId 2 .
 
-<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q_Value> ns4:isExternalValue true .
+<http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q_Value> ns3:isExternalValue true .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName_Value> ns1:hasStringValue "=A1" ;
-    ns4:isExternalValue false .
+    ns3:isExternalValue false .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName_Value> ns1:hasStringValue "=KA1" ;
-    ns4:isExternalValue false .
+    ns3:isExternalValue false .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName_Value> ns1:hasStringValue "=A2" ;
-    ns4:isExternalValue false .
+    ns3:isExternalValue false .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName_Value> ns1:hasStringValue "=KA1" ;
-    ns4:isExternalValue false .
+    ns3:isExternalValue false .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName> a ns1:BaseVariableType,
         ns1:PropertyType ;
@@ -310,9 +310,9 @@
     ns1:value <http://prediktor.com/RDS_dsl_testcase#s_HVLV18.PosPct.q_Value> .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1> a ns1:BaseObjectType,
-        ns3:A,
-        ns3:FunctionalSystemType,
-        ns3:RDSHypSystemType ;
+        ns4:A,
+        ns4:FunctionalSystemType,
+        ns4:RDSHypSystemType ;
     ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
     ns1:browseName "<MySite>=A1" ;
@@ -329,13 +329,13 @@
     ns1:nodeId "ns=1;s=<MySite>=A1" ;
     ns1:references <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.FunctionalAspectName>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> ;
-    ns3:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> .
+    ns4:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1> a ns1:BaseObjectType,
-        ns3:KA,
-        ns3:K_,
-        ns3:RDSHypSystemType,
-        ns3:TechnicalSystemType ;
+        ns4:KA,
+        ns4:K_,
+        ns4:RDSHypSystemType,
+        ns4:TechnicalSystemType ;
     ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV17>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
     ns1:browseName "<MySite>=A1.KA1" ;
@@ -352,12 +352,12 @@
     ns1:nodeId "ns=1;s=<MySite>=A1.KA1" ;
     ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV17>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A1.KA1.FunctionalAspectName> ;
-    ns3:hasLogicalNode <http://prediktor.com/RDS_dsl_testcase#s_HVLV17> .
+    ns4:hasLogicalNode <http://prediktor.com/RDS_dsl_testcase#s_HVLV17> .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2> a ns1:BaseObjectType,
-        ns3:A,
-        ns3:FunctionalSystemType,
-        ns3:RDSHypSystemType ;
+        ns4:A,
+        ns4:FunctionalSystemType,
+        ns4:RDSHypSystemType ;
     ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
     ns1:browseName "<MySite>=A2" ;
@@ -374,13 +374,13 @@
     ns1:nodeId "ns=1;s=<MySite>=A2" ;
     ns1:references <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.FunctionalAspectName>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> ;
-    ns3:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> .
+    ns4:functionalAspect <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> .
 
 <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1> a ns1:BaseObjectType,
-        ns3:KA,
-        ns3:K_,
-        ns3:RDSHypSystemType,
-        ns3:TechnicalSystemType ;
+        ns4:KA,
+        ns4:K_,
+        ns4:RDSHypSystemType,
+        ns4:TechnicalSystemType ;
     ns1:aggregates <http://prediktor.com/RDS_dsl_testcase#s_HVLV18>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
     ns1:browseName "<MySite>=A2.KA1" ;
@@ -397,5 +397,5 @@
     ns1:nodeId "ns=1;s=<MySite>=A2.KA1" ;
     ns1:references <http://prediktor.com/RDS_dsl_testcase#s_HVLV18>,
         <http://prediktor.com/RDS_dsl_testcase#s__MySite__A2.KA1.FunctionalAspectName> ;
-    ns3:hasLogicalNode <http://prediktor.com/RDS_dsl_testcase#s_HVLV18> .
+    ns4:hasLogicalNode <http://prediktor.com/RDS_dsl_testcase#s_HVLV18> .
 
