@@ -40,7 +40,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install git+https://github.com/PrediktorAS/quarry.git
+        pip install git+https://github.com/PrediktorAS/RDSdsl.git
         pip install -r tests/requirements.txt
     - name: Pull required docker images
       run: |
