@@ -25,6 +25,10 @@ The parser converts queries such as these to the abstract syntax defined in the 
 
 ### Translation to SPARQL
 The included translation script operates on abstract syntax objects and creates corresponding SPARQL queries like these:
+
+<details>
+    <summary>Show code</summary>
+
 ```
 SELECT ?designation ?timestamp ?HVLV_Mvm_stVal ?HVLV_PosPct_mag WHERE {
     ?HVLV <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://prediktor.com/IEC-61850-7-410-fragment#HVLV> .
@@ -56,9 +60,10 @@ SELECT ?designation ?timestamp ?HVLV_Mvm_stVal ?HVLV_PosPct_mag WHERE {
     FILTER( ?timestamp >= "2021-01-01T00:00:00+00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> 
             && ?timestamp <= "2021-01-31T23:59:59+00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime>
             && ?HVLV_Mvm_stVal = "true"^^<http://www.w3.org/2001/XMLSchema#boolean>)
-
 }
 ```
+</details>
+
 ### Results
 
 Using a setup such as in [Quarry](https://github.com/PrediktorAS/quarry), we can query a SPARQL database together with a time series database and get the following result:
