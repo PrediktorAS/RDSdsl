@@ -1,8 +1,18 @@
 # RDSdsl
-A domain specific language for querying time series data for analytics from RDS (IEC 81346) 
+A domain specific language for querying time series data for analytics from RDS (IEC 81346) composed with IEC-61850.
 
-Documentation is forthcoming (next week).
+Included here is:
+- A prototype parser
+- A prototype translator to SPARQL
+- A test case demonstrating how we can combine this package with [Quarry](https://github.com/PrediktorAS/quarry) to query time series data which are contextualized by RDS and IEC 61850.
+
 Included here is a parser for DSL queries over RDS / IEC 61850 information models like these:
+
+## Overview
+
+### Queries
+Queries are based on RDS (IEC 81346) notation and IEC 61850 syntax for data attributes.
+All queries are implicitly about identifying a set of signals and extracting the time series for these signals in an interval meeting conditions specified by the user. 
 ```
 =A=KA/HVLV.[1]
 [1]PosPct.mag
@@ -10,7 +20,11 @@ Included here is a parser for DSL queries over RDS / IEC 61850 information model
 from 2021-01-01 00:00:00+00:00
 to 2021-01-31 23:59:59+00:00
 ```
-A translator creates corresponding SPARQL queries like these:
+The grammar in Antlr4 notation can be found [here](https://github.com/PrediktorAS/RDSdsl/blob/main/parsergenerator/rdsquery.g4).
+The parser converts queries such as these to the abstract syntax defined in the paper. 
+
+### Translation to SPARQL
+The included translation script operates on abstract syntax objects and creates corresponding SPARQL queries like these:
 ```
 SELECT ?designation ?timestamp ?HVLV_Mvm_stVal ?HVLV_PosPct_mag WHERE {
     ?HVLV <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://prediktor.com/IEC-61850-7-410-fragment#HVLV> .
@@ -41,21 +55,20 @@ SELECT ?designation ?timestamp ?HVLV_Mvm_stVal ?HVLV_PosPct_mag WHERE {
     }
 }
 ```
-Yielding results such as:
-```
-designation,timestamp,HVLV_Mvm_stVal,HVLV_PosPct_mag
-<MySite>=A1.KA1,2021-01-01 00:00:00,True,10.0
-<MySite>=A1.KA1,2021-01-02 00:00:00,False,11.0
-<MySite>=A1.KA1,2021-01-03 00:00:00,True,12.0
-<MySite>=A1.KA1,2021-01-04 00:00:00,True,13.0
-<MySite>=A1.KA1,2021-01-05 00:00:00,True,14.0
-<MySite>=A1.KA1,2021-01-31 10:00:00,True,15.0
-<MySite>=A1.KA1,2021-02-01 00:00:00,True,16.0
-<MySite>=A2.KA1,2021-01-01 00:00:00,True,20.0
-<MySite>=A2.KA1,2021-01-02 00:00:00,True,21.0
-<MySite>=A2.KA1,2021-01-03 00:00:00,True,22.0
-<MySite>=A2.KA1,2021-01-04 00:00:00,True,23.0
-<MySite>=A2.KA1,2021-01-05 00:00:00,True,24.0
-<MySite>=A2.KA1,2021-01-31 10:00:00,True,25.0
-<MySite>=A2.KA1,2021-02-01 00:00:00,True,26.0
-```
+### Results
+
+Using a setup such as in [Quarry](https://github.com/PrediktorAS/quarry), we can query a SPARQL database together with a time series database and get the following result:
+
+|designation|timestamp|HVLV_Mvm_stVal|HVLV_PosPct_mag|
+|-----------|---------|--------------|---------------|
+|<MySite>=A1.KA1|2021-01-01 00:00:00|True|10.0|
+|<MySite>=A1.KA1|2021-01-03 00:00:00|True|12.0|
+|<MySite>=A1.KA1|2021-01-04 00:00:00|True|13.0|
+|<MySite>=A1.KA1|2021-01-05 00:00:00|True|14.0|
+|<MySite>=A1.KA1|2021-01-31 10:00:00|True|15.0|
+|<MySite>=A2.KA1|2021-01-01 00:00:00|True|20.0|
+|<MySite>=A2.KA1|2021-01-02 00:00:00|True|21.0|
+|<MySite>=A2.KA1|2021-01-03 00:00:00|True|22.0|
+|<MySite>=A2.KA1|2021-01-04 00:00:00|True|23.0|
+|<MySite>=A2.KA1|2021-01-05 00:00:00|True|24.0|
+|<MySite>=A2.KA1|2021-01-31 10:00:00|True|25.0|
