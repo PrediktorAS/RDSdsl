@@ -4,15 +4,23 @@ A domain specific language for querying time series data for analytics from RDS 
 Included here is:
 - A prototype parser
 - A prototype translator to SPARQL
-- A test case demonstrating how we can combine this package with [Quarry](https://github.com/PrediktorAS/quarry) to query time series data which are contextualized by RDS and IEC 61850.
+- A [test case](https://github.com/PrediktorAS/RDSdsl/blob/main/tests/test_paper_integration.py) demonstrating how we can combine this package with [Quarry](https://github.com/PrediktorAS/quarry) to query time series data which are contextualized by RDS and IEC 61850.
 
-Included here is a parser for DSL queries over RDS / IEC 61850 information models like these:
+This repository is associated with a paper, a draft version of which can be viewed [here](paperlink).
 
 ## Overview
+### Models
+We wish to query the time series data sets associated with industrial assets that are contextualized using the IEC 81346 (RDS) and IEC-61850 standards, and assume that you are somewhat familiar with these standards if you have found your way here.
+With our queries we would like to specify collections of logical devices using the RDS, and specify signals of interest attached to these devices using logical node types, data object names and data attribute names.
+From the paper above, we have the following example model:
 
+<img src="images/paper_model.png" alt="Model from paper" width="350px"/>
+
+Now, there is time series data attached to the leaf nodes in this tree, and we would like to access it with our query. 
 ### Queries
 Queries are based on RDS (IEC 81346) notation and IEC 61850 syntax for data attributes.
 All queries are implicitly about identifying a set of signals and extracting the time series for these signals in an interval meeting conditions specified by the user. 
+The query below extracts time series data associated with the leaf nodes in our example, but only for a certain period and only when Mvm.stVal is true. 
 ```
 =A=KA/HVLV.[1]
 [1]PosPct.mag
@@ -20,8 +28,16 @@ All queries are implicitly about identifying a set of signals and extracting the
 from 2021-01-01 00:00:00+00:00
 to 2021-01-31 23:59:59+00:00
 ```
+
+In the example above, we want the signals called PosPct.mag and Mvm.stVal attached to a logical node of type HVLV where this node is attached to a logical device which is:
+- reached from the root by navigating using the functional aspect (=) to a node with class code A
+- from there navigating with the functional aspect (=) to a node with class code KA
+
+PosPct is the name of a data object, mag a data attribute. 
+The IEC 61850-7-410 specification states that HVLV nodes can have data objects called PosPct and that these again have mag data attributes. 
+See the associated [paper](paperlink) for a more detailed discussion of syntax and intended semantics.
+
 The grammar in Antlr4 notation can be found [here](https://github.com/PrediktorAS/RDSdsl/blob/main/parsergenerator/rdsquery.g4).
-The parser converts queries such as these to the abstract syntax defined in the paper. 
 
 ### Translation to SPARQL
 The included translation script operates on abstract syntax objects and creates corresponding SPARQL queries like these:
@@ -83,7 +99,7 @@ Using a setup such as in [Quarry](https://github.com/PrediktorAS/quarry), we can
 |<MySite>=A2.KA1|2021-01-31 10:00:00|True|25.0|
 
 ## License
-The code in this repository is copyrighted to [Prediktor AS](http://prediktor.com), and is licensed under the Apache 2.0. \
+The code in this repository is copyrighted to [Prediktor AS](http://prediktor.com), and is licensed under the Apache 2.0 license. \
 Exceptions apply to some of the test data (see document headers for license information). 
 
 Author:
