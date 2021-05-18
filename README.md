@@ -1,4 +1,5 @@
-# RDSdsl
+<img src="images/logo.png" alt="Logo by Adrian Rutle"/>
+
 A domain specific language for querying time series data for analytics from RDS (IEC 81346) composed with IEC-61850.
 
 Included here is:
@@ -135,3 +136,4 @@ Exceptions apply to some of the test data (see document headers for license info
 Author:
 [Magnus Bakken](mba@prediktor.com)
 
+Logo design by Professor Adrian Rutle at the Western Norway University of Applied Sciences.
